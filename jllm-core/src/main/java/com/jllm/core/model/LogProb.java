@@ -2,6 +2,7 @@ package com.jllm.core.model;
 
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Getter;
 
 import java.util.List;
 import java.util.Objects;
@@ -23,9 +24,21 @@ import java.util.Objects;
  */
 public final class LogProb {
 
+    /**
+     * -- GETTER --
+     *
+     * @return The token string.
+     */
+    @Getter
     @JsonProperty("token")
     private final String token;
 
+    /**
+     * -- GETTER --
+     *
+     * @return The log probability.
+     */
+    @Getter
     @JsonProperty("logProb")
     private final double logProb;
 
@@ -47,20 +60,6 @@ public final class LogProb {
         this.token = Objects.requireNonNull(token, "Token cannot be null");
         this.logProb = logProb;
         this.topLogProbs = topLogProbs == null ? null : List.copyOf(topLogProbs);
-    }
-
-    /**
-     * @return The token string.
-     */
-    public String getToken() {
-        return token;
-    }
-
-    /**
-     * @return The log probability.
-     */
-    public double getLogProb() {
-        return logProb;
     }
 
     /**

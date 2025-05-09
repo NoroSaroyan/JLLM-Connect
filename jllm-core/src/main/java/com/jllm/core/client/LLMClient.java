@@ -4,14 +4,12 @@ package com.jllm.core.client;
 import com.jllm.core.model.PromptRequest;
 import com.jllm.core.model.PromptResponse;
 import com.jllm.core.provider.Provider;
-import com.jllm.core.provider.ProviderFactory;
 import com.jllm.core.provider.StreamingListener;
 import com.jllm.core.rate.RateLimiter;
 import com.jllm.core.retry.RetryPolicy;
 
 import java.io.IOException;
 import java.util.Objects;
-import java.util.ServiceLoader;
 
 /**
  * Single entry point for synchronous and streaming LLM calls.
@@ -112,10 +110,6 @@ public final class LLMClient {
          * Build the immutable LLMClient instance.
          */
         public LLMClient build() {
-            if (provider == null) {
-                // auto-discover via Java SPI if none provided
-                provider = ProviderFactory.loadDefault();
-            }
             Objects.requireNonNull(model, "Model must be set");
             return new LLMClient(this);
         }

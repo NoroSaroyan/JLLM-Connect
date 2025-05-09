@@ -1,19 +1,19 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+    <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.jllm</groupId>
-  <artifactId>jllm-connect</artifactId>
-  <version>0.1.0</version>
-  <packaging>pom</packaging>
+    <groupId>com.jllm</groupId>
+    <artifactId>jllm-connect</artifactId>
+    <version>0.1.0</version>
+    <packaging>pom</packaging>
 
-  <modules>
-    <module>jllm-core</module>
-    <module>jllm-openai</module>
-    <module>jllm-huggingface</module>
-    <module>jllm-groq</module>
-    <module>jllm-utils</module>
-    <module>examples</module>
-  </modules>
+    <modules>
+        <module>jllm-core</module>
+        <module>jllm-openai</module>
+        <module>jllm-huggingface</module>
+        <module>jllm-groq</module>
+        <module>jllm-utils</module>
+        <module>examples</module>
+    </modules>
 </project>

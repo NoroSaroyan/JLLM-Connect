@@ -19,7 +19,6 @@ import java.util.List;
  *
  * Author: @Noro
  */
-@Deprecated()
 public class OpenAIProvider implements Provider {
 
     private static final String API_URL = "https://api.openai.com/v1/completions";

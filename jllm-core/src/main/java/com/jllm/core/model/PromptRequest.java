@@ -1,5 +1,8 @@
 package com.jllm.core.model;
 
+import lombok.Getter;
+import lombok.NonNull;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -20,14 +23,19 @@ import java.util.Objects;
  *         .build();
  * </pre>
  * </p>
- *
+ * <p>
  * Author: @Noro
  * Version: 1.0
  */
+@Getter
 public final class PromptRequest {
 
+    @NonNull
     private final String model;
-    private final List<String> messages;
+
+    @NonNull
+    private final List<Message> messages;
+
     private final double temperature;
     private final int maxTokens;
     private final String user;
@@ -36,15 +44,15 @@ public final class PromptRequest {
     /**
      * Private constructor to ensure that objects are created via the Builder pattern.
      *
-     * @param b The builder instance.
+     * @param builder The builder instance.
      */
-    private PromptRequest(Builder b) {
-        this.model = b.model;
-        this.messages = List.copyOf(b.messages);
-        this.temperature = b.temperature;
-        this.maxTokens = b.maxTokens;
-        this.user = b.user;
-        this.stopSequences = List.copyOf(b.stopSequences);
+    private PromptRequest(Builder builder) {
+        this.model = builder.model;
+        this.messages = builder.messages;
+        this.temperature = builder.temperature;
+        this.maxTokens = builder.maxTokens;
+        this.user = builder.user;
+        this.stopSequences = builder.stopSequences;
     }
 
     /**
@@ -54,7 +62,7 @@ public final class PromptRequest {
      * @return a new PromptRequest with the updated model
      */
     public PromptRequest withModel(String model) {
-        return new Builder()
+        return builder()
                 .model(model)
                 .messages(this.messages)
                 .temperature(this.temperature)
@@ -73,42 +81,45 @@ public final class PromptRequest {
         return new Builder();
     }
 
-    public static final class Builder {
+    /**
+     * Builder pattern to construct a PromptRequest.
+     */
+    public static class Builder {
 
         private String model;
-        private List<String> messages = new ArrayList<>();
+        private List<Message> messages = new ArrayList<>();
         private double temperature = 1.0;
         private int maxTokens = 256;
         private String user;
         private List<String> stopSequences = new ArrayList<>();
 
-        public Builder model(String m) {
-            this.model = m;
+        public Builder model(String model) {
+            this.model = model;
             return this;
         }
 
-        public Builder messages(List<String> msgs) {
-            this.messages = msgs;
+        public Builder messages(List<Message> messages) {
+            this.messages = messages;
             return this;
         }
 
-        public Builder temperature(double t) {
-            this.temperature = t;
+        public Builder temperature(double temperature) {
+            this.temperature = temperature;
             return this;
         }
 
-        public Builder maxTokens(int m) {
-            this.maxTokens = m;
+        public Builder maxTokens(int maxTokens) {
+            this.maxTokens = maxTokens;
             return this;
         }
 
-        public Builder user(String u) {
-            this.user = u;
+        public Builder user(String user) {
+            this.user = user;
             return this;
         }
 
-        public Builder stopSequences(List<String> stops) {
-            this.stopSequences = stops;
+        public Builder stopSequences(List<String> stopSequences) {
+            this.stopSequences = stopSequences;
             return this;
         }
 
@@ -120,32 +131,10 @@ public final class PromptRequest {
          */
         public PromptRequest build() {
             Objects.requireNonNull(model, "model cannot be null");
-            Objects.requireNonNull(messages, "messages cannot be null");
+            if (messages == null || messages.isEmpty()) {
+                throw new NullPointerException("messages cannot be null or empty");
+            }
             return new PromptRequest(this);
         }
-    }
-
-    public String getModel() {
-        return model;
-    }
-
-    public List<String> getMessages() {
-        return messages;
-    }
-
-    public double getTemperature() {
-        return temperature;
-    }
-
-    public int getMaxTokens() {
-        return maxTokens;
-    }
-
-    public String getUser() {
-        return user;
-    }
-
-    public List<String> getStopSequences() {
-        return stopSequences;
     }
 }

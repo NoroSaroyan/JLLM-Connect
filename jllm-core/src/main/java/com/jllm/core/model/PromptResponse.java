@@ -1,6 +1,7 @@
 package com.jllm.core.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Getter;
 
 import java.util.List;
 import java.util.Objects;
@@ -15,15 +16,17 @@ import java.util.Objects;
  *     System.out.println(response.getText());
  * </pre>
  * </p>
- *
+ * <p>
  * Author: @Noro
  * Version: 1.0
  */
 public final class PromptResponse {
 
+    @Getter
     @JsonProperty("choices")
     private final String text;
 
+    @Getter
     @JsonProperty("usage")
     private final TokenUsage usage;
 
@@ -38,15 +41,9 @@ public final class PromptResponse {
     private PromptResponse(Builder b) {
         this.text = Objects.requireNonNull(b.text);
         this.usage = Objects.requireNonNull(b.usage);
-        this.logProbs = List.copyOf(b.logProbs);
-    }
-
-    public String getText() {
-        return text;
-    }
-
-    public TokenUsage getUsage() {
-        return usage;
+        this.logProbs = (b.logProbs == null)
+                ? List.of()
+                : List.copyOf(b.logProbs);
     }
 
     public List<LogProb> getLogProbs() {
