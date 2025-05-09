@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/examples/examples.iml" filepath="$PROJECT_DIR$/examples/examples.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jllm-connect.iml" filepath="$PROJECT_DIR$/jllm-connect.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jllm-core/jllm-core.iml" filepath="$PROJECT_DIR$/jllm-core/jllm-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jllm-groq/jllm-groq.iml" filepath="$PROJECT_DIR$/jllm-groq/jllm-groq.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jllm-huggingface/jllm-huggingface.iml" filepath="$PROJECT_DIR$/jllm-huggingface/jllm-huggingface.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jllm-openai/jllm-openai.iml" filepath="$PROJECT_DIR$/jllm-openai/jllm-openai.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jllm-utils/jllm-utils.iml" filepath="$PROJECT_DIR$/jllm-utils/jllm-utils.iml" />
+    </modules>
+  </component>
+</project>
