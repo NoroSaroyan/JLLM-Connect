@@ -14,8 +14,9 @@ import java.util.Objects;
  *     System.out.println("Prompt Tokens: " + usage.getPromptTokens());
  * </pre>
  * </p>
- *
+ * <p>
  * Author: @Noro
+ * Version: 1.0
  */
 public final class TokenUsage {
 
@@ -31,9 +32,9 @@ public final class TokenUsage {
     /**
      * Constructor to initialize token usage fields.
      *
-     * @param promptTokens The number of tokens used in the prompt.
+     * @param promptTokens     The number of tokens used in the prompt.
      * @param completionTokens The number of tokens used in the completion.
-     * @param totalTokens The total number of tokens used.
+     * @param totalTokens      The total number of tokens used.
      */
     public TokenUsage(
             @JsonProperty("promptTokens") int promptTokens,
@@ -63,8 +64,8 @@ public final class TokenUsage {
         if (!(o instanceof TokenUsage)) return false;
         TokenUsage that = (TokenUsage) o;
         return promptTokens == that.promptTokens &&
-               completionTokens == that.completionTokens &&
-               totalTokens == that.totalTokens;
+                completionTokens == that.completionTokens &&
+                totalTokens == that.totalTokens;
     }
 
     @Override
@@ -75,9 +76,9 @@ public final class TokenUsage {
     @Override
     public String toString() {
         return "TokenUsage{" +
-               "promptTokens=" + promptTokens +
-               ", completionTokens=" + completionTokens +
-               ", totalTokens=" + totalTokens +
-               '}';
+                "promptTokens=" + promptTokens +
+                ", completionTokens=" + completionTokens +
+                ", totalTokens=" + totalTokens +
+                '}';
     }
 }

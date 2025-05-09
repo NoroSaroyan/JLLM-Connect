@@ -17,6 +17,7 @@ import java.util.Objects;
  * </p>
  *
  * Author: @Noro
+ * Version: 1.0
  */
 public final class PromptResponse {
 
