@@ -1,0 +1,73 @@
+# === Java build output ===
+target/
+*.class
+
+# === Logs ===
+*.log
+
+# === Maven ===
+.mvn/
+!**/mvnw
+!**/mvnw.cmd
+
+# === IntelliJ IDEA ===
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# === Eclipse ===
+.project
+.classpath
+.settings/
+.loadpath
+
+# === VS Code ===
+.vscode/
+
+# === OS generated files ===
+.DS_Store
+Thumbs.db
+
+# === Runtime and temporary ===
+*.swp
+*.bak
+*.tmp
+*.orig
+
+# === JetBrains Rider ===
+.idea/
+*.sln
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# === Java Libraries (optional - if using manually downloaded jars) ===
+lib/
+*.jar
+
+# === Test coverage ===
+jacoco.exec
+coverage/
+
+# === LLM JSON dumps or AI artifacts (if any) ===
+ai_dumps/
+*.jsonl
+
+# === Environment files (optional) ===
+.env
+.env.*
+
+# === Secrets / API keys (NEVER COMMIT) ===
+*.key
+*.pem
+*.crt
+secrets.*
+credentials.*
+
+# === Node/npm (in case of frontend in future) ===
+node_modules/
+dist/
+build/
